@@ -8,35 +8,57 @@ namespace Project_Euler
 {
     class LargestPrimeFactor
     {
-        public LargestPrimeFactor()
-        {
-
-        }
-
         public void calculate()
         {
+            List<long> factors = new List<long>();
             long limit = getLimit();
-            long largest = 3;
+            long sqrtLimit = (long) Math.Sqrt(limit);
+            long largest = -1;
             long num = 3;
 
-            while (num < limit)
+            while(num <= sqrtLimit)
             {
-                if(limit % num == 0)
+                if(isFactor(num, limit))
                 {
-                    if (isPrime(num))
-                    {
-                        largest = num;
-                    }
+                    factors.Add(num);
+                    factors.Add(limit / num);
                 }
 
-                num += 2;
+                num++;
             }
 
-            string s2 = "The largest prime factor of " + limit + " is " + largest;
+            factors.Sort();
+
+            bool prime = false;
+
+            int i = factors.Count() - 1;
+            while (!prime)
+            {
+
+                if (isPrime(factors[i]))
+                {
+                    largest = factors[i];
+                    prime = true;
+                }
+
+                i--;
+            }
+
+            string s2 = "The largest prime factor of " + limit + " is: " + largest;
 
             Console.WriteLine(s2);
             Console.WriteLine();
+        }
 
+        /// <summary>
+        /// Return true if num is a factor of
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        private bool isFactor(long num, long limit)
+        {
+            return (limit%num == 0);
         }
 
         private bool isPrime(long n)
@@ -47,6 +69,27 @@ namespace Project_Euler
                     return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// Given a prime number, finds the next prime number larger than the given number
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        private long nextPrime(long n)
+        {
+            bool numFound = false;
+
+            while (!numFound)
+            {
+                n++;
+                if (isPrime(n))
+                {
+                    numFound = true;
+                }
+            }
+
+            return n;
         }
 
         private long getLimit()

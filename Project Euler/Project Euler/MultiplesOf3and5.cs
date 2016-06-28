@@ -8,11 +8,6 @@ namespace Project_Euler
 {
     class MultiplesOf3and5
     {
-        public MultiplesOf3and5()
-        {
-           
-        }
-
         public void calculate()
         {
             int limit = getLimit();

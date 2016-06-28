@@ -9,11 +9,6 @@ namespace Project_Euler
 {
     class EvenFibonacci
     {
-        public EvenFibonacci()
-        {
-
-        }
-
         public void calculate()
         {
             int limit = getLimit();

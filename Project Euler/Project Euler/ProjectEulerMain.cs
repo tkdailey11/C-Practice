@@ -35,6 +35,11 @@ namespace Project_Euler
                     LargestPrimeFactor prime = new LargestPrimeFactor();
                     prime.calculate();
                 }
+                else if (problem.Equals("4"))
+                {
+                    PalindromeProduct prod = new PalindromeProduct();
+                    prod.calculate();
+                }
             }
 
         }

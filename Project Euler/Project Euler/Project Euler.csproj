@@ -46,6 +46,7 @@
     <Compile Include="EvenFibonacci.cs" />
     <Compile Include="LargestPrimeFactor.cs" />
     <Compile Include="MultiplesOf3and5.cs" />
+    <Compile Include="PalindromeProduct.cs" />
     <Compile Include="ProjectEulerMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
